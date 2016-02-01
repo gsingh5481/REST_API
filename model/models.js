@@ -17,4 +17,14 @@ exports.show = function(res){
     if (err) throw err;
     res.json(rows);
   });
+  con.end(function(err) { console.log("connection ened show");});
+}
+
+exports.SearchId = function(id,res){
+ var sql = "SELECT * FROM users where id = '" + id + "';";
+ conn.query(sql, function(err,rows,fields){
+   if (err) throw err;
+   res.json(rows);
+ });
+ con.end(function(err) { console.log("connection ened show");});
 }
