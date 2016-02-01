@@ -22,7 +22,7 @@ exports.show = function(res){
   conn.end(function(err) { console.log("connection ened show");});
 }
 
-//seearch by name
+//search by name
 exports.SearchId = function(id,res){
  var sql = "SELECT * FROM users WHERE name = '" + id + "' ";
  console.log(sql);
