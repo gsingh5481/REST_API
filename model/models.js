@@ -24,7 +24,6 @@ exports.show = function(res){
 
 //seearch by name
 exports.SearchId = function(id,res){
- // var sql = "SELECT * FROM users where id = '" + id + "';";
  var sql = "SELECT * FROM users WHERE name = '" + id + "' ";
  console.log(sql);
  conn.query(sql, function(err,rows,fields){
