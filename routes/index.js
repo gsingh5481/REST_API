@@ -1,10 +1,13 @@
 var express = require('express');
-var model = require('../model/models');
 var router = express.Router();
+var model = require('../model/models');
+var mdb = require('../config/mconfig');
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   model.show(res);
+  // res.send(mdb.collection().find());
 
 }).get('/:name',function (req,res,next) {
   var id = req.params.name;
