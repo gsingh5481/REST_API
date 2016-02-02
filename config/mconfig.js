@@ -1,9 +1,17 @@
-var db = require('mongodb').MongoClient;
+// var db = require('mongodb').MongoClient;
+var Db = require('mongodb').Db,
+    MongoClient = require('mongodb').MongoClient,
+    Server = require('mongodb').Server;
 
-var mdb = db.connect('mongodb://ocalhost:27017/testigMydb',function(err,db){
+/*var mdb = db.connect('mongodb://localhost:27017/testigMydb',function(err,db){
   if(err) throw err;
-  return db;
-});
+  // return db;
+});*/
+
+var db = new Db('testingMydb',Server('localhost',27017));
+// console.log(db);
 
 
-module.exports = mdb;
+
+
+module.exports = db;
