@@ -24,7 +24,7 @@ router.post('/insert',function(req,res,next){
 });
 
 router.get('/m',function(req,res,next){
-
+mdb.open();
 });
 
 module.exports = router;
