@@ -1,19 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var model = require('../model/models');
-
 var users_model= require('../model/userModel')
-// var mongoose = require('mongoose');
-// mongoose.connect('mongodb://localhost/testingMydb');
-// var mdb = require('../config/mconfig');
-// console.log(mdb);
-
-/*var Schema = mongoose.Schema;
-var myUser = new Schema({
-  name: String,
-  email: String
-});
-var users_model=mongoose.model('users', myUser);*/
 
 
 /* GET home page. */
@@ -35,14 +23,16 @@ router.post('/insert',function(req,res,next){
 });
 
 router.get('/m',function(req,res,next){
-
-  /*var Schema = mongoose.Schema,
-    ObjectId = Schema.ObjectId;*/
-users_model.find({}, function(err,users){
-  res.send(users);
+  users_model.find({}, function(err,users){
+    res.send(users);
+  });
 });
 
-
+router.get('/m/:name',function(req,res,next){
+  var name1 = req.params.name;
+   users_model.findOne({name: name1},function(err,user){
+     res.send(user);
+   });
 });
 
 module.exports = router;

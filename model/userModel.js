@@ -8,7 +8,13 @@ var userSchema = new Schema({
 
 module.exports = mongoose.model('users',userSchema);
 /*
-  
+
+//  to get all the info
+
+  users_model.find({}, function(err,users){
+    res.send(users);
+  });
+
   //to read file and laod it
 
   var fs = require('fs');
