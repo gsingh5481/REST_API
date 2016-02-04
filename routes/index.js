@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var model = require('../model/models');
-var users_model= require('../model/userModel')
+var mongomodel= require('../model/MongoModel')
 
 
 /* GET home page. */
@@ -23,16 +23,11 @@ router.post('/insert',function(req,res,next){
 });
 
 router.get('/m',function(req,res,next){
-  users_model.find({}, function(err,users){
-    res.send(users);
-  });
+  mongomodel.find(res);
 });
 
 router.get('/m/:name',function(req,res,next){
-  var name1 = req.params.name;
-   users_model.findOne({name: name1},function(err,user){
-     res.send(user);
-   });
+   mongomodel.findByName(req.params.name , res);
 });
 
 module.exports = router;
