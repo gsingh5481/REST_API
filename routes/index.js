@@ -2,11 +2,18 @@ var express = require('express');
 var router = express.Router();
 var model = require('../model/models');
 
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/testingMydb');
+var users_model= require('../model/userModel')
+// var mongoose = require('mongoose');
+// mongoose.connect('mongodb://localhost/testingMydb');
 // var mdb = require('../config/mconfig');
 // console.log(mdb);
 
+/*var Schema = mongoose.Schema;
+var myUser = new Schema({
+  name: String,
+  email: String
+});
+var users_model=mongoose.model('users', myUser);*/
 
 
 /* GET home page. */
@@ -31,16 +38,10 @@ router.get('/m',function(req,res,next){
 
   /*var Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId;*/
-  var myUser = mongoose.Schema();
-  /*var myUser = mongoose.Schema({
-      name: String,
-      email: String
-    });*/
+users_model.find({}, function(err,users){
+  res.send(users);
+});
 
-var users = mongoose.model('users', myUser);
-  users.find({},function(err,user){
-    res.json(user);
-  });
 
 });
 

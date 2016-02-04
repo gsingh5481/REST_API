@@ -1,22 +1,14 @@
 var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/testingMydb');
 var Schema = mongoose.Schema;
 var userSchema = new Schema({
   name: String,
   email: String
 });
 
-mongoose.model('users',userSchema);
+module.exports = mongoose.model('users',userSchema);
 /*
-    //to find all
-
-    mongoose.model('uses',function(err,users){
-    res.send(users);
-  })
-
-
-
-
-
+  
   //to read file and laod it
 
   var fs = require('fs');
