@@ -1,7 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var model = require('../model/models');
-var mdb = require('../config/mconfig');
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/testingMydb');
+// var mdb = require('../config/mconfig');
 // console.log(mdb);
 
 
@@ -24,7 +26,7 @@ router.post('/insert',function(req,res,next){
 });
 
 router.get('/m',function(req,res,next){
-mdb.open();
+
 });
 
 module.exports = router;
