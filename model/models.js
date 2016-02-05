@@ -29,3 +29,11 @@ exports.SearchId = function(id,res){
    res.json(rows);
  });
 }
+
+exports.removeByName = function(name1 , res){
+  var sql = "DELETE FROM users where name =  '" + name1 + "' ";
+  conn.query(sql, function(err , rows , fields){
+    if (err) throw err;
+    res.send("removed successfull");
+  })
+}

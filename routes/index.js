@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
   // res.send(mdb.collection().find());
 
 });
-router.get('/insert/:name',function (req,res,next) {
+router.get('/search/:name',function (req,res,next) {
   var id = req.params.name;
   model.SearchId(id,res);
 
@@ -22,12 +22,19 @@ router.post('/insert',function(req,res,next){
 
 });
 
+router.delete('/remove/:name',function(req , res, next){
+  model.removeByName(req.params.name , res);
+})
+
 router.get('/m',function(req,res,next){
   mongomodel.find(res);
 });
 
 router.get('/m/:name',function(req,res,next){
    mongomodel.findByName(req.params.name , res);
+});
+router.delete('/m/remove/:name',function(req,res,next){
+  mongomodel.removeByName(req.params.name,res);
 });
 
 module.exports = router;
