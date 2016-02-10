@@ -13,8 +13,12 @@ exports.findByName = function(name1,res){
 }
 
 exports.removeByName = function(name1,res){
-  monModel.remove({name : name1},function(err){
-    // if(err) res.send(err);
-    res.send("removed");
-  });
+  monModel.remove({name : "'" + name1 + "'"});
 }
+
+/*
+,function(err){
+  // if(err) res.send(err);
+  res.send(name1);
+}
+*/

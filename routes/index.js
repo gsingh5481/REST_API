@@ -34,7 +34,8 @@ router.get('/m/:name',function(req,res,next){
    mongomodel.findByName(req.params.name , res);
 });
 router.delete('/m/remove/:name',function(req,res,next){
-  mongomodel.removeByName(req.params.name,res);
+  var name = req.params.name
+  mongomodel.removeByName( name , res);
 });
 
 module.exports = router;
