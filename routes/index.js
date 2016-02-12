@@ -8,8 +8,9 @@ var mongomodel= require('../model/MongoModel')
 router.get('/', function(req, res, next) {
   model.show(res);
   // res.send(mdb.collection().find());
-
 });
+
+
 router.get('/search/:name',function (req,res,next) {
   var id = req.params.name;
   model.SearchId(id,res);
@@ -37,5 +38,23 @@ router.delete('/m/remove/:name',function(req,res,next){
   var name = req.params.name
   mongomodel.removeByName( name , res);
 });
+
+router.get('/f',function(req,res,next){
+  model.showAllWithFunction(function(rows){
+    res.json(rows);
+    console.log(rows);
+  });
+});
+
+router.get('/f/:name',function(req,res,next){
+  model.SearchIdWithFunction(req.params.name , function(rows){
+    res.json(rows);
+  });
+});
+
+
+
+
+
 
 module.exports = router;

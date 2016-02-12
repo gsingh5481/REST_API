@@ -37,3 +37,20 @@ exports.removeByName = function(name1 , res){
     res.send("removed successfull");
   })
 }
+
+exports.showAllWithFunction = function(callback){
+  var sql = "SELECT * FROM users";
+  conn.query(sql, function(err,rows,fields){
+    if (err) throw err;
+    callback(rows);
+  });
+}
+
+exports.SearchIdWithFunction = function(id ,callback){
+  var sql = "SELECT * FROM users WHERE name = '" + id + "' ";
+  conn.query(sql, function(err,rows,fields){
+    if (err) throw err;
+    callback(rows);
+  });
+
+}
