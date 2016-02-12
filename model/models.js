@@ -25,11 +25,11 @@ exports.show = function(res){
 exports.SearchId = function(id,res){
  var sql = "SELECT * FROM users WHERE name = '" + id + "' ";
  conn.query(sql, function(err,rows,fields){
-   if (err) throw err;
+   if (err) throw err;``
    res.json(rows);
  });
 }
-
+  //remove by name
 exports.removeByName = function(name1 , res){
   var sql = "DELETE FROM users where name =  '" + name1 + "' ";
   conn.query(sql, function(err , rows , fields){
@@ -37,7 +37,7 @@ exports.removeByName = function(name1 , res){
     res.send("removed successfull");
   })
 }
-
+  //show all but with a twist with a callback function
 exports.showAllWithFunction = function(callback){
   var sql = "SELECT * FROM users";
   conn.query(sql, function(err,rows,fields){
@@ -45,7 +45,7 @@ exports.showAllWithFunction = function(callback){
     callback(rows);
   });
 }
-
+  // find by name with callback twiat
 exports.SearchIdWithFunction = function(id ,callback){
   var sql = "SELECT * FROM users WHERE name = '" + id + "' ";
   conn.query(sql, function(err,rows,fields){
