@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/testingMydb');
+mongoose.connect('mongodb://localhost/testingApi');
 var Schema = mongoose.Schema;
 var userSchema = new Schema({
   name: String,
