@@ -13,7 +13,17 @@ exports.findByName = function(name1,res){
 }
 
 exports.removeByName = function(name1,res){
-  monModel.remove({name : "'" + name1 + "'"});
+  monModel.remove({name : + name1}, function(err,data){
+    if(err) throw err;
+    console.log(data);
+  });
+}
+
+exports.insertMongo = function(name,email,callback){
+  monModel.create({name: name , email: email},function(err,data){
+      if(err) throw err;
+      callback(data);
+  });
 }
 
 /*

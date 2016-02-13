@@ -39,6 +39,12 @@ router.delete('/m/remove/:name',function(req,res,next){
   mongomodel.removeByName( name , res);
 });
 
+router.post('/m/insert', function(req,res){
+  mongomodel.insertMongo(req.body.name , req.body.email,function(data){
+    console.log(data);
+  });
+});
+
 router.get('/f',function(req,res,next){
   model.showAllWithFunction(function(rows){
     res.json(rows);
