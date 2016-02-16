@@ -13,10 +13,17 @@ exports.findByName = function(name1,res){
 }
 
 exports.removeByName = function(name1,res){
-  monModel.remove({name : + name1}, function(err,data){
+/*  monModel.remove({name : + name1}, function(err,data){
     if(err) throw err;
     console.log(data);
   });
+*/
+  monModel.where().findOneAndRemove({name:name1},function(err, data) {
+    if(err) throw err;
+    console.log(data);
+  });
+
+
 }
 
 exports.insertMongo = function(name,email,callback){
