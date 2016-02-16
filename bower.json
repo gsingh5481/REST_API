@@ -1,0 +1,19 @@
+{
+  "name": "api",
+  "description": "my first api",
+  "main": "bin/www",
+  "authors": [
+    "Gurpreet Singh"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
