@@ -1,4 +1,4 @@
-var monModel = require('./userModel');
+var monModel = require('../config/userModel');
 
 exports.find = function(res){
   monModel.find({},function(err,data){
