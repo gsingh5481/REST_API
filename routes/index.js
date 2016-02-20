@@ -58,7 +58,12 @@ router.get('/f/:name',function(req,res,next){
   });
 });
 
+router.get('/p', function(req,res,next){
+  model.findAllWithPromise().then(function(rows){
+    res.json(rows);
+  });
 
+});
 
 
 

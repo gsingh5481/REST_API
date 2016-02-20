@@ -54,3 +54,14 @@ exports.SearchIdWithFunction = function(id ,callback){
   });
 
 }
+exports.findAllWithPromise = function() {
+  return new Promise(function(resolve, reject) {
+
+    var sql = "SELECT * FROM users";
+    conn.query(sql, function(err,rows,fields){
+      if (err) reject(err);
+      else resolve(rows);
+
+    });
+  });
+}
