@@ -1,5 +1,5 @@
 var conn = require('../config/database');
-conn.connect();
+// conn.connect();
 
           //insert
 exports.insert = function(name,email,res){

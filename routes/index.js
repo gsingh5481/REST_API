@@ -5,15 +5,16 @@ var router = express.Router();
 var mysql = require('./routes/mysql/mysqlRoutes')(router);
 
 /*all mongo Routes*/
-var mysql = require('./routes/mysql/mongoRoutes')(router);
+var mongo = require('./routes/mysql/mongoRoutes')(router);
 
 /*all promise routes */
-var mysql = require('./routes/mysql/promiseRoutes')(router);
+var promise = require('./routes/mysql/promiseRoutes')(router);
 
 /*all functional Routes */
-var mysql = require('./routes/mysql/functionalRoutes')(router);
+var functional = require('./routes/mysql/functionalRoutes')(router);
 
-
+/*all newModel Routes */
+var newModel = require('./routes/mysql/newModelRoutes')(router);
 
 
 

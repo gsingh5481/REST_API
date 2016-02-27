@@ -1,4 +1,5 @@
-var model = require('../../../model/models')
+var model = require('../../../model/newModel')
+
 module.exports = function(router){
 
   router.get('/', function(req, res, next) {
