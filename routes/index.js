@@ -5,7 +5,7 @@ var router = express.Router();
 var mysql = require('./routes/mysql/mysqlRoutes')(router);
 
 /*all mongo Routes*/
-var mongo = require('./routes/mysql/mongoRoutes')(router);
+var mongo = require('./routes/mongo/mongoRoutes')(router);
 
 /*all promise routes */
 var promise = require('./routes/mysql/promiseRoutes')(router);
