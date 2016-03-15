@@ -25,7 +25,7 @@ exports.show = function(res){
 exports.SearchId = function(id,res){
  var sql = "SELECT * FROM users WHERE name = '" + id + "' ";
  conn.query(sql, function(err,rows,fields){
-   if (err) throw err;``
+   if (err) throw err;
    res.json(rows);
  });
 }
@@ -54,14 +54,27 @@ exports.SearchIdWithFunction = function(id ,callback){
   });
 
 }
-exports.findAllWithPromise = function() {
+exports.findAllWithPromise = function(id) {
   return new Promise(function(resolve, reject) {
 
-    var sql = "SELECT * FROM users";
+    var sql = "SELECT * FROM users where id = '" + id + "'";
     conn.query(sql, function(err,rows,fields){
       if (err) reject(err);
+
       else resolve(rows);
 
+    });
+  });
+}
+
+exports.findIdwithPromise = function(){
+  return new Promise(function(resolve,reject){
+    var sql = "SELECT * FROM users WHERE name = '" + id + "' ";
+    conn.query(sql, function(err,rows,fields){
+      if
+        (err) reject(err);
+      else
+        resolve(rows);
     });
   });
 }
